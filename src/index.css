@@ -1,6 +1,4 @@
-* {
-  font-family: "Sansation", sans-serif;
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+@import "tailwindcss";
+*{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
