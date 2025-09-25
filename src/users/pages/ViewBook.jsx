@@ -1,8 +1,14 @@
 import React from 'react'
+import Header from '../components/Header'
+import Footer from '../../components/Footer'
 
 const ViewBook = () => {
   return (
-    <div>ViewBook</div>
+    <>
+      <Header />
+      ViewBook
+      <Footer />
+    </>
   )
 }
 
