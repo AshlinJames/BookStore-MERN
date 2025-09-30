@@ -25,9 +25,9 @@ function Footer() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="px-3 py-2 w-full rounded-l-md  text-gray-100"
+              className="px-3 border py-2 w-full rounded-l-md  text-gray-100"
             />
-            <button className="bg-yellow-400 px-4 rounded-r-md font-bold">
+            <button className="bg-gray-400 px-4 rounded-r-md font-bold">
               <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
@@ -49,7 +49,7 @@ function Footer() {
     
       <div className="bg-black text-gray-300 text-center py-4 text-sm">
         <p>
-          Copyright © 2023 All rights reserved | This website is made with ♥ by Athira
+          Copyright © 2025 | All rights reserved | This website is made with ♥ by Ashlin James
         </p>
       </div>
     </div>

@@ -1,8 +1,14 @@
 import React from 'react'
+import Adminheader from '../components/Adminheader'
+import Footer from '../../components/Footer'
 
 const ResourceAdmin = () => {
   return (
-    <div>ResourceAdmin</div>
+    <div>
+      <Adminheader />
+      ResourceAdmin
+      <Footer />
+    </div>
   )
 }
 
