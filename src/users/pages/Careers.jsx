@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../../components/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import { faSquareArrowUpRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowsLeftRight, faLocationDot, faXmark } from '@fortawesome/free-solid-svg-icons'
+
 
 const Careers = () => {
+  const [careerModal, setCareerModal] = useState(false)
+
   return (
     <>
       <Header />
@@ -47,31 +51,50 @@ const Careers = () => {
                 <p>Description: </p>
               </div>
               <button className="bg-blue-600 hover:bg-blue-700 transition text-white px-5 py-2 rounded self-start sm:self-center">
-                Apply <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ml-1" />
+                Apply<FontAwesomeIcon size='2x' icon={faSquareArrowUpRight} onClick={() => setCareerModal(true)} />
               </button>
             </div>
           </div>
 
-          {/* Job Card 2 */}
-          <div className="border border-gray-200 p-5 shadow my-5 rounded-lg">
-            <div className="flex flex-col sm:flex-row justify-between gap-4">
-              <div className="w-full">
-                <h1 className="text-xl font-semibold">Frontend Developer</h1>
-                <hr className="my-2" />
-                <p>📍 Trivandrum</p>
-                <p>Job Type: Full-time</p>
-                <p>Salary: </p>
-                <p>Qualification: </p>
-                <p>Experience: </p>
-                <p>Description: </p>
+
+        </div>
+      </div>
+      {/* modal */}
+
+      {careerModal && <div className='relative z-10 ' >
+        <div className="bg-gray-500/75 fixed inset-0 transition-opacity">
+          <div className="justify-center flex items-center md:min-h-screen">
+            <div className='bg-white text-black md:h-100 md:w-200 w-100 rounded'>
+              <div className='bg-black text-white flex justify-between items-center p-3'>
+                <h3>Application Form</h3>
+                <FontAwesomeIcon icon={faXmark} onClick={() => setCareerModal(false)} />
               </div>
-              <button className="bg-blue-600 hover:bg-blue-700 transition text-white px-5 py-2 rounded self-start sm:self-center">
-                Apply <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="ml-1" />
-              </button>
+              <div className=' m-6 md:w-180  items-center  text center '>
+                <div className='md:grid md:grid-cols-2 my-5 '>
+                  <input type="text" placeholder='Full Name' className='m-2 border ' />
+                  <input type="text" placeholder='Qualification' className='m-2 border ' />
+                  <input type="email" placeholder='Email' className='m-2 border ' />
+                  <input type="Phone" placeholder='Full Name' className='m-2 border ' />
+                </div>
+                <textarea type="text" rows={3} placeholder='Cover Letter' className='md:w-180 px-2 border ' />
+
+                <div className='flex justify-start md:w-180 my-4 border '>
+                  <div className='px-10 py-1 bg-gray-300 text-black'>Chose file</div>
+                  <input type="file" className="py-1 px-10 " placeholder='No file chosen' />
+                </div>
+                <div className='flex justify-end md:w-180 my-4'>
+                  <button className=' rounded bg-red-500 text-white w-30 p-2 m-2'>Reset</button>
+                  <button className=' rounded bg-green-500 text-white w-30 p-2 m-2' onClick={() => setCareerModal(false)}>Submit</button>
+                </div>
+
+              </div>
+
+
             </div>
           </div>
         </div>
       </div>
+      }
       <Footer />
     </>
   )

@@ -1,9 +1,12 @@
-import React from "react";
-import Header from "../components/Header";
-import Footer from "../../components/Footer";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react'
+import Header  from '../components/Header'
+import Footer from '../../components/Footer'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBackward, faCamera, faEye, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 const ViewBook = () => {
+  const [modalStatus, setModalStatus] = useState(false)
   return (
     <>
       <Header />
@@ -28,6 +31,8 @@ const ViewBook = () => {
             <p className="text-blue-500 mb-4">
               - Héctor García, Francesc Miralles
             </p>
+            <button onClick={() => setModalStatus(true)}> <FontAwesomeIcon icon={faEye} className='text-gray-400' /></button>
+
 
             <div className="text-sm md:text-base space-y-1">
               <p>
@@ -78,6 +83,29 @@ const ViewBook = () => {
           </div>
         </div>
       </div>
+      {/* modal */}
+      {modalStatus && <div className='relative z-10 ' onClick={() => setModalStatus(false)}>
+        <div className="bg-gray-500/75 fixed inset-0 transition-opacity">
+          <div className="justify-center flex items-center md:min-h-screen">
+            <div className='bg-white text-black md:h-100 md:w-200 w-100 rounded'>
+              <div className='bg-black text-white flex justify-between items-center p-3'>
+                <h3>Books Images</h3>
+                <FontAwesomeIcon icon={faXmark} onClick={() => setModalStatus(false)} />
+              </div>
+              <p className='text-blue-600 my-5 ml-5'>
+                <FontAwesomeIcon icon={faCamera} className='me-2' />
+                Camera click of the book in the hand of seller
+              </p>
+
+              <div className="md-flex flex-cols-3 flex-wrap my-4">
+                {/* duplicate images */}
+                <img className='' style={{ width: "250px", height: "250px" }} src=" https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?cs=srgb&dl=assortment-book-bindings-books-1130980.jpg&fm=jpg" alt="book images" />
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>}
 
       <Footer />
     </>

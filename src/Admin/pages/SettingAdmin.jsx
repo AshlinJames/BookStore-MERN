@@ -10,10 +10,7 @@ const SettingAdmin = () => {
     <>
       <Adminheader />
 
-      {/* Top welcome bar */}
-      <div className="bg-gray-800 text-white text-center text-sm py-2">
-        Welcome, Admin! &nbsp; You’re all set to manage and monitor the system. Let’s get to work!
-      </div>
+     
 
       {/* Layout */}
       <div className="flex flex-col md:flex-row">

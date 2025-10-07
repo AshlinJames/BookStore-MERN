@@ -1,45 +1,40 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faBookOpen,
-  faBriefcase,
-  faCog,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBagShopping, faBars, faBook, faCircleUser, faHome, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-const AdminSidebar = () => {
+function AdminSidebar() {
+      const [listStatus,setListStatus] = useState(false)
+  
   return (
-    <aside className="w-full md:w-1/4 bg-gray-100 p-6 border-r border-gray-200 min-h-screen">
-      {/* Profile */}
-      <div className="flex flex-col items-center text-center mb-8">
-        <div className="w-24 h-24 bg-gray-300 rounded-full flex items-center justify-center">
-          <FontAwesomeIcon icon={faUser} className="text-4xl text-gray-600" />
-        </div>
-        <h2 className="mt-4 text-lg font-semibold">Username</h2>
-      </div>
+    <>
+    <div className=' bg-blue-100 md:w-80 w-full md:h-screen md:h-100 md:flex flex-col justify-center py-10 '>
+   <div className='flex justify-center'> <img src='https://static.vecteezy.com/system/resources/previews/019/879/186/original/user-icon-on-transparent-background-free-png.png' alt='user' className='text-gray-700 text-center text-8xl' />
+   </div>
+    <h1 className='fond-semibold text-center'> Name</h1>
+  <div className="md:hidden flex justify-center text-2xl items-center  ">
+      <button onClick={()=>setListStatus(!listStatus)} ><FontAwesomeIcon icon={faBars} className='text-blue-600 text-center py-5'/></button>
+  
+    </div> 
+           <div className={listStatus ? 'md:px-20 px-30 block ':'md:block hidden'}>
+              <div className="mt-3">
+                <Link to={'/admin-dashboard'} className='ms-3' htmlFor="literary"><FontAwesomeIcon icon={faHome} />HOME</Link>
+              </div>
+              <div className="mt-3">
+                <Link to={'/view-book'} className='ms-3' htmlFor="literary"><FontAwesomeIcon icon={faBook} />ALL BOOKS</Link>
+              </div>
+              <div className="mt-3">
+                <Link to={'/admin-careers'} className='ms-3' htmlFor="literary"><FontAwesomeIcon icon={faBagShopping} />CAREERS </Link>
+              </div>
+              <div className="mt-3">
+                <Link to={'/admin-settings'} className='ms-3' htmlFor="literary"><FontAwesomeIcon icon={faScrewdriverWrench} />SETTINGS</Link>
+              </div>
+         </div>
 
-      {/* Navigation */}
-      <nav className="flex flex-col gap-4 text-gray-700">
-        <button className="flex items-center gap-2 hover:text-blue-600 transition">
-          <FontAwesomeIcon icon={faHome} />
-          <span>Home</span>
-        </button>
-        <button className="flex items-center gap-2 hover:text-blue-600 transition">
-          <FontAwesomeIcon icon={faBookOpen} />
-          <span>All Books</span>
-        </button>
-        <button className="flex items-center gap-2 hover:text-blue-600 transition">
-          <FontAwesomeIcon icon={faBriefcase} />
-          <span>Careers</span>
-        </button>
-        <button className="flex items-center gap-2 text-blue-600 font-semibold">
-          <FontAwesomeIcon icon={faCog} />
-          <span>Settings</span>
-        </button>
-      </nav>
-    </aside>
-  );
-};
+    </div>
 
-export default AdminSidebar;
+    </>
+  )
+}
+
+export default AdminSidebar
